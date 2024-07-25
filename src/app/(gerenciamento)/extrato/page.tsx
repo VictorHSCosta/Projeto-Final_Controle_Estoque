@@ -4,6 +4,6 @@ import styles from "./index.module.css";
 
 export default function Home() {
   return (
-    <main>extrato</main>
+    <section>extrato</section>
   );
 }
