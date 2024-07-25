@@ -14,7 +14,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-      <body className={styles.body}>
+      <section className={styles.body}>
         <div className={styles.options}>
           <div className={styles.user}>
             <img alt="foto de perfil"/>
@@ -32,6 +32,6 @@ export default function RootLayout({
         <div>
           {children}
         </div>
-      </body>
+      </section>
   );
 }
