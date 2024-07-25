@@ -15,12 +15,12 @@
     "db:migrate": "prisma migrate deploy",
     "db:seed": "NODE_ENV=development prisma db seed"
   },
-  "prisma":{
+  "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.6.0",
-    "@prisma/client": "^5.14.0",
+    "@prisma/client": "^5.17.0",
     "@t3-oss/env-nextjs": "^0.10.1",
     "geist": "^1.3.0",
     "next": "^14.2.4",
@@ -38,7 +38,8 @@
     "@typescript-eslint/parser": "^7.1.1",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.4",
-    "prisma": "^5.14.0",
+    "prisma": "^5.17.0",
+    "tsx": "^4.16.2",
     "typescript": "^5.5.3"
   },
   "ct3aMetadata": {

@@ -1,13 +1,12 @@
 import { prisma } from "prisma";
 
 const main = async () => {
-    const administrador = await prisma.administrador.create({
+    const user = await prisma.user.create({
         data: {
-            nome: "Administrador",
-            foto: "https://www.google.com.br",
+            email: ""
         }
-    }
-)};
+    });    
+};
 
 main()
     .then(async () => await prisma.$disconnect())

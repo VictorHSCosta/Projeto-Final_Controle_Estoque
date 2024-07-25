@@ -73,17 +73,16 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
-
-model Administrador{
-    id       Int      @id @default(autoincrement())
-    name     String
-    foto     String 
-}
-
-model Funcionario {
+model Usuario {
     id        Int      @id @default(autoincrement())
-    name      String
-    foto     String 
+    nome      String
+    email     String
+    telefone  String
+    endereco  String
+    cidade    String
+    estado    String
+    cep       String
+    permicao  Int
 }
 
 model Autor {
