@@ -4,6 +4,6 @@ import styles from "./index.module.css";
 
 export default function Home() {
   return (
-    <main>oi</main>
+    <main>se estiver logado, mandar para /dashboard, se não, mandar para /login</main>
   );
 }
