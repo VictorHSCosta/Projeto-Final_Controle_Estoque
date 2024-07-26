@@ -26,7 +26,28 @@ const main = async () => {
             permicao : 2
         }
     });  
+
+    const autor = await prisma.autor.create({
+        data: {
+            nome: "Victor",
+            foto: "foto"
+        }
+    });
+
+    const livro = await prisma.livro.create({
+        data: {
+            titulo: "titulo",
+            foto_capa: "foto",
+            dataLancamento: "foto",
+            quantidade: 1,
+            descricao: "descricao",
+            preco: 1
+        }
+    });
+
 };
+
+
 
 main()
     .then(async () => await prisma.$disconnect())
