@@ -73,33 +73,32 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
-
-model Administrador{
-    id       Int      @id @default(autoincrement())
-    name     String
-    foto     String 
-}
-
-model Funcionario {
+model Usuario {
     id        Int      @id @default(autoincrement())
-    name      String
-    foto     String 
+    nome      String
+    email     String
+    telefone  String
+    endereco  String
+    cidade    String
+    estado    String
+    cep       String
+    permicao  Int
 }
 
 model Autor {
     id        Int      @id @default(autoincrement())
-    name      String
+    nome      String
     foto     String 
-    livro      Livro[]
+    //livro      Livro[]
 }
 
 model Livro {
     id        Int      @id @default(autoincrement())
-    name      String
-    capa     String 
-    dataLancamento DateTime
+    titulo      String
+    foto_capa     String 
+    dataLancamento String
     quantidade Int
     descricao String
     preco    Float
-    autor     Autor[]
+    //autor     Autor[]
 }
