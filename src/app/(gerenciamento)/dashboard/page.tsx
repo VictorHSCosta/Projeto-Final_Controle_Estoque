@@ -4,6 +4,6 @@ import styles from "./index.module.css";
 
 export default function Home() {
   return (
-    <p>pagina dashboard</p>
+    <section>pagina dashboard</section>
   );
 }

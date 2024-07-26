@@ -4,6 +4,6 @@ import styles from "./index.module.css";
 
 export default function Home() {
   return (
-    <main>estoque CRUD</main>
+    <section>estoque CRUD</section>
   );
 }
