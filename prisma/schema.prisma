@@ -102,3 +102,19 @@ model Livro {
     preco    Float
     //autor     Autor[]
 }
+
+model Adicionar {
+    id        Int      @id @default(autoincrement())
+    idUsuario      Int
+    idLivro     Int
+    quantidade Int
+    dataAdicao DateTime @default(now())
+}
+
+model Retirar{
+    id        Int      @id @default(autoincrement())
+    idUsuario      Int
+    idLivro     Int
+    quantidade Int
+    dataRetirada DateTime @default(now())
+}
