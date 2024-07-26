@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import styles from "~/styles/login.module.css";
 import  Footer  from "~/app/_components/footer_login";
+import { LoginGoogle } from "../_components/botão_login_google";
 
 export default function Home() {
   return (
@@ -19,17 +20,7 @@ export default function Home() {
         
         <div className={styles.forms}>
           <h1 className={styles.login}>Login</h1>
-
-          <form>
-            <h2 className={styles.email}>Email</h2>
-            <input type="email" className={styles.input}/>
-            <h2 className={styles.senha}>Senha</h2>
-            <input type="password" className={styles.input} />
-            <button className={styles.button}>
-              <h3 className={styles.h3}>
-                Entrar</h3>
-              </button>
-          </form>
+          <LoginGoogle/>
         </div>
       </section>
       

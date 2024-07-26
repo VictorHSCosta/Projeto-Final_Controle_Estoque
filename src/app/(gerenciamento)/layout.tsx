@@ -1,16 +1,14 @@
 import "~/styles/globals.css";
 import styles from "~/styles/gerenciamento.module.css";
+import { Usuario } from "../_components/usuario";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
       <section className={styles.body}>
         <div className={styles.options}>
-          <div className={styles.user}>
-            <img src="/default_pfp.svg" alt="foto de perfil"/>
-            <h2>Nome do Usuário</h2>
-          </div>
+          <Usuario/>
           <div>
             <ul className={styles.nav}>
               <li><img className={styles.icon_home} src="/home_icon.svg"/><a href="/dashboard">Dashboard</a></li>
