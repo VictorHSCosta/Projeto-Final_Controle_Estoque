@@ -1,6 +1,7 @@
 import "~/styles/globals.css";
 
 import { type Metadata } from "next";
+import { AuthProvider } from "./_components/auth_provider";
 
 export const metadata: Metadata = {
   title: "Sebinho - Gerenciamento de Estoque",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body>
-        {children}
+          <AuthProvider>
+            {children}
+          </AuthProvider>
       </body>
     </html>
   );

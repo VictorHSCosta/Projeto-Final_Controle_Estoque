@@ -25,6 +25,11 @@
 
 .user > img {
     height: 8rem;
+    border-radius: 4rem;
+}
+
+.user > h2 {
+    text-align: center;
 }
 
 .user > h2 {
