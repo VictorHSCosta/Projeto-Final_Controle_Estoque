@@ -1,0 +1,11 @@
+.funcionario {
+    background-color: #FFE7BA;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    margin-top: 2rem;
+    font-family: Inter;
+}
+
+.funcionario > h2 {
+    margin: 0;
+}

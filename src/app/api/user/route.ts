@@ -7,6 +7,7 @@ export async function GET(req: NextRequest) {
         console.log(req)
         const id = req.nextUrl.searchParams.get('id')
         const email = req.nextUrl.searchParams.get("email")
+        const nome = req.nextUrl.searchParams.get("nome")
 
         if (id) {
             const user = await db.usuario.findUnique({
@@ -21,6 +22,15 @@ export async function GET(req: NextRequest) {
             const user = await db.usuario.findUnique({
                 where: {
                     email: String(email)
+                }
+            })
+            return NextResponse.json(user)
+        }
+
+        else if (nome) {
+            const user = await db.usuario.findMany({
+                where: {
+                    nome: String(nome)
                 }
             })
             return NextResponse.json(user)

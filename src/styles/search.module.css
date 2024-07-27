@@ -1,0 +1,31 @@
+.search_bar {
+    display: flex;
+    justify-content: space-around;
+    width: max-content;
+}
+
+.search_bar > img {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.search_bar > button {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search_bar > input {
+    border: solid #A68444 2px;
+    border-radius: 13px;
+    background-color: rgba(0,0,0,0);
+    height: 40px;
+    width: 320px;
+    text-indent: 15px;
+}
+
+.search_bar > input::placeholder {
+    font-family: Inter;
+}
