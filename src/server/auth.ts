@@ -6,6 +6,7 @@ import {
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
 import GoogleProvider from "next-auth/providers/google";
+import { boolean } from "zod";
 
 import { env } from "~/env";
 import { db } from "~/server/db";
@@ -45,6 +46,12 @@ export const authOptions: NextAuthOptions = {
         id: user.id,
       },
     }),
+    async signIn({user}) {
+      const email = user.email
+      const response = await fetch(`http://localhost:3000/api/user?email=${email}`, {method: "GET"})
+      const data: { id:number, nome:string} = await response.json()
+      return Boolean(data.nome)
+    },
     redirect({ url, baseUrl }) {
       return baseUrl + '/dashboard'
     },
