@@ -4,12 +4,23 @@ import { db } from "src/server/db";
 
 export async function GET(req: NextRequest) {
     try {
+        console.log(req)
         const id = req.nextUrl.searchParams.get('id')
+        const email = req.nextUrl.searchParams.get("email")
 
         if (id) {
             const user = await db.usuario.findUnique({
                 where: {
                     id: Number(id)
+                }
+            })
+            return NextResponse.json(user)
+        }
+
+        else if (email) {
+            const user = await db.usuario.findUnique({
+                where: {
+                    email: String(email)
                 }
             })
             return NextResponse.json(user)
