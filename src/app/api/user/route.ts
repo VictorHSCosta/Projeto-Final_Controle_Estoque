@@ -120,15 +120,17 @@ export async function PATCH(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
     try {
-        const { id } = await req.json() as { id: number };
+        const id = Number(req.nextUrl.searchParams.get('id'))
 
-        const user = await db.usuario.delete({
+        if (id) {
+            const user = await db.usuario.delete({
             where: {
                 id
             }
-        });
-
-        return NextResponse.json(user);
+            })
+            return NextResponse.json(user);
+        }
+        
 
     } catch (error) {
         console.error('Error processing request:', error);

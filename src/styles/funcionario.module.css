@@ -9,3 +9,9 @@
 .funcionario > h2 {
     margin: 0;
 }
+
+.funcionario > button {
+    color: red;
+    background-color: white;
+    border-radius: 5px;
+}
