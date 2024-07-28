@@ -4,9 +4,9 @@ import { db } from "src/server/db";
 
 export async function GET(req: NextRequest) {
     try {
-        console.log(req)
         const id = req.nextUrl.searchParams.get('id')
         const email = req.nextUrl.searchParams.get("email")
+        const nome = req.nextUrl.searchParams.get("nome")
 
         if (id) {
             const user = await db.usuario.findUnique({
@@ -26,6 +26,15 @@ export async function GET(req: NextRequest) {
             return NextResponse.json(user)
         }
 
+        else if (nome) {
+            const user = await db.usuario.findMany({
+                where: {
+                    nome: String(nome)
+                }
+            })
+            return NextResponse.json(user)
+        }
+
         const users  = await db.usuario.findMany()
         return NextResponse.json(users)
     } catch (error) {
@@ -38,15 +47,12 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
     try {
-        const { nome, email, telefone, endereco, cidade, estado, cep, permicao } = await req.json() as {
+        const { nome, email, telefone, endereco, permissao } = await req.json() as {
             nome: string,
             email: string,
             telefone: string,
             endereco: string,
-            cidade: string,
-            estado: string,
-            cep: string,
-            permicao: number
+            permissao: number
         };
 
         const user = await db.usuario.create({
@@ -55,10 +61,7 @@ export async function POST(req: NextRequest) {
                 email,
                 telefone,
                 endereco,
-                cidade,
-                estado,
-                cep,
-                permicao
+                permissao
             }
         });
 
@@ -72,16 +75,13 @@ export async function POST(req: NextRequest) {
 
 export async function PATCH(req: NextRequest) {
     try {
-        const { id, nome, email, telefone, endereco, cidade, estado, cep, permicao } = await req.json() as {
+        const { id, nome, email, telefone, endereco,permissao } = await req.json() as {
             id: number,
             nome: string,
             email: string,
             telefone: string,
             endereco: string,
-            cidade: string,
-            estado: string,
-            cep: string,
-            permicao: number
+            permissao: number
         };
 
         const user = await db.usuario.update({
@@ -93,10 +93,7 @@ export async function PATCH(req: NextRequest) {
                 email,
                 telefone,
                 endereco,
-                cidade,
-                estado,
-                cep,
-                permicao
+                permissao
             }
         });
 
@@ -110,15 +107,17 @@ export async function PATCH(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
     try {
-        const { id } = await req.json() as { id: number };
+        const id = Number(req.nextUrl.searchParams.get('id'))
 
-        const user = await db.usuario.delete({
+        if (id) {
+            const user = await db.usuario.delete({
             where: {
                 id
             }
-        });
-
-        return NextResponse.json(user);
+            })
+            return NextResponse.json(user);
+        }
+        
 
     } catch (error) {
         console.error('Error processing request:', error);

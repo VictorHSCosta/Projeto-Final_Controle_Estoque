@@ -48,9 +48,17 @@ export const authOptions: NextAuthOptions = {
     }),
     async signIn({user}) {
       const email = user.email
-      const response = await fetch(`http://localhost:3000/api/user?email=${email}`, {method: "GET"})
-      const data: { id:number, nome:string} = await response.json()
-      return Boolean(data.nome)
+      try {
+        const response = await fetch(`http://localhost:3000/api/user?email=${email}`, {method: "GET"})
+        const data: { id:number, nome:string} = await response.json()
+        if (data.nome) {
+          return true
+        }
+        else {return false}
+      }
+      catch (error) {
+        return '/unauthorized'
+      }
     },
     redirect({ url, baseUrl }) {
       return baseUrl + '/dashboard'
