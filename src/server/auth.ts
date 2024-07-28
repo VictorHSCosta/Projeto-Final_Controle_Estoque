@@ -57,7 +57,7 @@ export const authOptions: NextAuthOptions = {
         else {return false}
       }
       catch (error) {
-        return '/unauthorized'
+        return '/unauthorized?u=0'
       }
     },
     redirect({ url, baseUrl }) {
