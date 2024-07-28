@@ -15,6 +15,19 @@ export async function GET(req: NextRequest) {
             return NextResponse.json(livro)
         }
 
+        const titulo = req.nextUrl.searchParams.get('titulo');
+        
+        if (titulo) {
+            const livros = await db.livro.findMany({
+                where: {
+                    titulo: {
+                        contains: titulo
+                    }
+                }
+            });
+            return NextResponse.json(livros);
+        }
+
         const livros = await db.livro.findMany()
         return NextResponse.json(livros)
     } catch (error) {
@@ -38,8 +51,6 @@ export async function POST(req: NextRequest) {
         const livro = await db.livro.create({
             data: {
                 titulo,
-                foto_capa,
-                dataLancamento,
                 quantidade,
                 descricao,
                 preco
@@ -71,8 +82,6 @@ export async function PATCH(req: NextRequest) {
             },
             data: {
                 titulo,
-                foto_capa,
-                dataLancamento,
                 quantidade,
                 descricao,
                 preco

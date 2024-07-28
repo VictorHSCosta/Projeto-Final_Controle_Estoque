@@ -90,13 +90,11 @@ model Autor {
 }
 
 model Livro {
-    id        Int      @id @default(autoincrement())
-    titulo      String
-    foto_capa     String 
-    dataLancamento String
-    quantidade Int
-    descricao String
-    preco    Float
+    id          Int      @id @default(autoincrement())
+    titulo      String @unique
+    quantidade  Int
+    descricao   String
+    preco       Float
     //autor     Autor[]
 }
 
