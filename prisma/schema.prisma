@@ -79,10 +79,7 @@ model Usuario {
     email     String   @unique
     telefone  String
     endereco  String
-    cidade    String
-    estado    String
-    cep       String
-    permicao  Int
+    permissao  Int @default(0)
 }
 
 model Autor {

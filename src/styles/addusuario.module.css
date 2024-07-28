@@ -1,0 +1,51 @@
+.botaoAddUsuario {
+    margin-bottom: 0.5rem;
+    padding: 0.8rem;
+    border: solid #A68444 2px;
+    border-radius: 12px;
+    background-color: #FFE7BA;
+    display: flex;
+    align-items: center;
+    font-family: Inter;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.menuAddUsuario {
+    background-color: #FFE7BA;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: max-content;
+    width: max-content;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border: solid #A68444 2px;
+}
+
+.menuAddUsuario > input {
+    margin-bottom: 0.5rem;
+    background-color: #FFF5D6;
+    border: solid #A68444 2px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.menuAddUsuario > p {
+    font-family: Inter;
+    margin: 0;
+    margin-bottom: 1.5rem;
+}
+
+.menuAddUsuario > button {
+    background-color: white;
+    padding: 10px;
+    border: solid #A68444 2px;
+    border-radius: 8px;
+    font-family: Inter;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}

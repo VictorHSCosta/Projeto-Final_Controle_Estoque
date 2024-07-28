@@ -13,7 +13,7 @@ export function Usuario() {
     return(
         <div className={styles.user}>
             <img src={session.data?.user.image ?? "/default_pfp.svg"} alt="foto de perfil"/>
-            <h2>{session.data?.user.name ?? "Sem Usuario"}</h2>
+            <h2>{session.data?.user.name ?? "-"}</h2>
             <button onClick={()=>Sair()}>LogOut</button>
         </div>
     )
