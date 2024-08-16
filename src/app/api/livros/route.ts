@@ -5,6 +5,7 @@ import { db } from "src/server/db";
 export async function GET(req: NextRequest) {
     try {
         const id = req.nextUrl.searchParams.get('id')
+        //const titulo = req.nextUrl.searchParams.get('titulo');
 
         if (id) {
             const livro = await db.livro.findUnique({
@@ -14,19 +15,17 @@ export async function GET(req: NextRequest) {
             })
             return NextResponse.json(livro)
         }
-
-        const titulo = req.nextUrl.searchParams.get('titulo');
         
-        if (titulo) {
-            const livros = await db.livro.findMany({
-                where: {
-                    titulo: {
-                        contains: titulo
-                    }
-                }
-            });
-            return NextResponse.json(livros);
-        }
+        // if (titulo) {
+        //     const livros = await db.livro.findMany({
+        //         where: {
+        //             titulo: {
+        //                 contains: titulo
+        //             }
+        //         }
+        //     });
+        //     return NextResponse.json(livros);
+        // }
 
         const livros = await db.livro.findMany()
         return NextResponse.json(livros)
@@ -39,10 +38,8 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
     try {
-        const { titulo, foto_capa, dataLancamento, quantidade, descricao, preco } = await req.json() as {
+        const { titulo, quantidade, descricao, preco } = await req.json() as {
             titulo: string,
-            foto_capa: string,
-            dataLancamento: string,
             quantidade: number,
             descricao: string,
             preco: number
@@ -66,11 +63,9 @@ export async function POST(req: NextRequest) {
 
 export async function PATCH(req: NextRequest) {
     try {
-        const { id, titulo, foto_capa, dataLancamento, quantidade, descricao, preco } = await req.json() as {
+        const { id, titulo, quantidade, descricao, preco } = await req.json() as {
             id: number,
             titulo: string,
-            foto_capa: string,
-            dataLancamento: string,
             quantidade: number,
             descricao: string,
             preco: number
